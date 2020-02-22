@@ -6,8 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
 
 public class Account extends AppCompatActivity {
 
@@ -16,6 +20,18 @@ public class Account extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
+        ArrayList<String> arr = new ArrayList<>();
+        arr.add("Files");
+        arr.add("Language");
+        arr.add("Notifications");
+        arr.add("Privacy and Security");
+        arr.add("Help");
+        arr.add("Log out");
+        ListView listView = findViewById(R.id.accountListView);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arr);
+        listView.setAdapter(arrayAdapter);
+
+        // Navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setSelectedItemId(R.id.account);

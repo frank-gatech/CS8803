@@ -31,6 +31,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Checklist listView
+        ArrayList<String> arr = new ArrayList<>();
+        arr.add("All Tasks");
+        arr.add("Required Paperworks");
+        arr.add("Internation Student");
+        arr.add("Campus Life");
+        ListView listView = findViewById(R.id.mainListView);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arr);
+        listView.setAdapter(arrayAdapter);
+
+        // Navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setSelectedItemId(R.id.checklist);
